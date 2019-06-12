@@ -17,6 +17,7 @@ public class Drawer extends JPanel implements ActionListener {
 	Background background;
 	Player player;
 	KeyListener1 keyListener;
+	HUD hud;
 	//public ArrayList <Item> items;
 	public ArrayList <Enemy> enemies;
 
@@ -29,10 +30,23 @@ public class Drawer extends JPanel implements ActionListener {
 		//items = new ArrayList <Item>();
 		enemies = new ArrayList <Enemy>();
 		
-		player = new Player(enemies);
-
+		hud = new HUD();
 		
-		enemies.add(new Enemy (100, 100, 100, 100, 100, player));
+		player = new Player(enemies);
+		
+		enemies.add(new Enemy (300, 300, 100, 100, 100, player));
+		enemies.add(new Enemy (300, 700, 100, 100, 100, player));
+
+		enemies.add(new Enemy (300, 100, 100, 100, 100, player));
+		enemies.add(new Enemy (300, 200, 100, 100, 100, player));
+		enemies.add(new Enemy (400, 600, 100, 100, 100, player));
+		enemies.add(new Enemy (1000, 100, 100, 100, 100, player));
+
+		enemies.add(new Enemy (200, 200, 100, 100, 100, player));
+		enemies.add(new Enemy (300, 600, 100, 100, 100, player));
+		enemies.add(new Enemy (1100, 100, 100, 100, 100, player));
+		
+
 
 		
 		//mario = new Mario(blocks);
@@ -50,8 +64,11 @@ public class Drawer extends JPanel implements ActionListener {
 	public void paint (Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(new Color (0, 0, 100));
+		
 
 		background.paint(g2);
+		hud.paint(g2);
+
 
 		g2.setColor(new Color (0, 0, 255));
 
@@ -61,9 +78,13 @@ public class Drawer extends JPanel implements ActionListener {
 		//}
 		
 		for (int i = 0; i<enemies.size(); i ++) {
-			enemies.get(i).physics();
-			enemies.get(i).checkHit();
-			enemies.get(i).paint(g2);
+			if (enemies.get(i).alive) {
+				enemies.get(i).checkBoundaries();
+				enemies.get(i).enemyFollow();
+				enemies.get(i).physics();
+				enemies.get(i).checkHit();
+				enemies.get(i).paint(g2);
+			}
 		}
 		
 		g2.setColor(new Color (0, 0, 0));

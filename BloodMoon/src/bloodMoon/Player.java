@@ -37,6 +37,7 @@ public class Player {
 	public ArrayList <Enemy> enemies;
 	public boolean swordHit;
 	private int swordCount;
+	public int health;
 
 
 
@@ -53,10 +54,10 @@ public class Player {
 		enemies = en;
 		swordHit = false;
 		swordCount = 0;
+		health = 100;
 
 		keyListener1 = new KeyListener1();
 
-		
 		
 		try {
 			playerRight = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\King Right (1).png"));
@@ -70,10 +71,7 @@ public class Player {
 	
 	public void paint (Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		AffineTransform old = g2.getTransform();
 
-		//keyListener1.mouseX = (int) MouseInfo.getPointerInfo().getLocation().getX();
-		//keyListener1.mouseY = (int) MouseInfo.getPointerInfo().getLocation().getY();
 
 		if (keyListener1.mouseX>(posX+width*.4)+(1.2*width)/2) {
 			direction =1;
@@ -99,8 +97,6 @@ public class Player {
 
 	        	}
 	        }
-
-
 
 			g2.drawImage(sword, (int)-(1.2*width)/2, (int)-((1.2*height)*.75), (int)(width*1.2), (int)(height*1.2), null);
 

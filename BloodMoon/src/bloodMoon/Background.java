@@ -12,6 +12,7 @@ public class Background {
  
 	BufferedImage background;
 
+
 	public Background () {
 		try {
 			background = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\background.png"));
