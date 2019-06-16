@@ -22,7 +22,7 @@ public class Player {
 
 
 	
-	public boolean alive;
+	public boolean gameOver;
 	public int width;
 	public int height;
 	public static int posX;
@@ -44,7 +44,7 @@ public class Player {
 
 	public Player (ArrayList <Enemy> en) {
 		
-		alive = true;
+		gameOver = false;
 		width = 60; 
 		height = 60;
 		posX = 0;
@@ -84,6 +84,8 @@ public class Player {
 		
 		swordX = -1;
 		swordY = -1;
+		
+		g2.drawRect(posX+5, posY+5, width-15, height-10);
 		
 		if (direction>0) {
 			g2.drawImage(playerRight, posX, posY, width, height, null);
@@ -126,20 +128,20 @@ public class Player {
 	public void physics () {
 
 		if (keyListener1.keys[3]) {
-			velX=4;
+			velX=5;
 		}
 		else if (keyListener1.keys[1]) {
-			velX=-4;
+			velX=-5;
 		}
 		else {
 			velX = 0;
 		}
 		
 		if (keyListener1.keys[2]) {
-			velY=4;
+			velY=5;
 		}
 		else if (keyListener1.keys[0]) {
-			velY=-4;
+			velY=-5;
 		}
 		else {
 			velY = 0;
@@ -194,15 +196,24 @@ public class Player {
 	}
 	
 	public void checkEnemy () {
-		for (int i = 0; i<enemies.size(); i++) {
-			if (enemies.get(i).hitbox().intersects(this.hitbox())) {
-				//System.out.println("d");
+		if (enemies.size()!=0) {
+			for (int i = 0; i<enemies.size(); i++) {
+				if (enemies.get(i).hitbox().intersects(this.hitbox())) {
+					health--;
+				}
 			}
 		}
+		
+		System.out.println(health);
+		if (health <0) {
+			gameOver = true;
+		}
+			
+			
 	}
 	
 	public Rectangle hitbox ( ) {
-		return (new Rectangle (posX, posY, width, height));
+		return (new Rectangle (posX+5, posY+5, width-15, height-10));
 	}
 	
 }

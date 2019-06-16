@@ -34,17 +34,20 @@ public class Drawer extends JPanel implements ActionListener {
 		
 		player = new Player(enemies);
 		
-		enemies.add(new Enemy (300, 300, 100, 100, 100, player));
-		enemies.add(new Enemy (300, 700, 100, 100, 100, player));
+		enemies.add(new Enemy (300, 300, 100, 100, 100, false, player));
+		enemies.add(new Enemy (300, 700, 100, 100, 100, false, player));
 
-		enemies.add(new Enemy (300, 100, 100, 100, 100, player));
-		enemies.add(new Enemy (300, 200, 100, 100, 100, player));
-		enemies.add(new Enemy (400, 600, 100, 100, 100, player));
-		enemies.add(new Enemy (1000, 100, 100, 100, 100, player));
+		enemies.add(new Enemy (300, 100, 100, 100, 100, false, player));
+		enemies.add(new Enemy (300, 200, 100, 100, 100, false, player));
+		enemies.add(new Enemy (400, 600, 100, 100, 100, false, player));
+		enemies.add(new Enemy (1000, 100, 100, 100, 100, false, player));
 
-		enemies.add(new Enemy (200, 200, 100, 100, 100, player));
-		enemies.add(new Enemy (300, 600, 100, 100, 100, player));
-		enemies.add(new Enemy (1100, 100, 100, 100, 100, player));
+		enemies.add(new Enemy (200, 200, 100, 100, 100, false, player));
+		enemies.add(new Enemy (300, 600, 100, 100, 100, false, player));
+		enemies.add(new Enemy (1100, 100, 100, 100, 100, false, player));
+		
+		//enemies.add(new Enemy (0, 300, 100, 100, 100, true, player));
+
 		
 
 
@@ -67,35 +70,37 @@ public class Drawer extends JPanel implements ActionListener {
 		
 
 		background.paint(g2);
-		hud.paint(g2);
-
-
-		g2.setColor(new Color (0, 0, 255));
-
-		//for (int i = 0; i<items.size(); i ++) {
-		//	items.get(i).paint(g2);
-		//	items.get(i).physics();
-		//}
 		
-		for (int i = 0; i<enemies.size(); i ++) {
-			if (enemies.get(i).alive) {
-				enemies.get(i).checkBoundaries();
-				enemies.get(i).enemyFollow();
-				enemies.get(i).physics();
-				enemies.get(i).checkHit();
-				enemies.get(i).paint(g2);
+		if (!player.gameOver) {
+			hud.paint(g2);
+	
+	
+			g2.setColor(new Color (0, 0, 255));
+	
+			//for (int i = 0; i<items.size(); i ++) {
+			//	items.get(i).paint(g2);
+			//	items.get(i).physics();
+			//}
+			
+			if (enemies.size()!=0) {
+				for (int i = 0; i<enemies.size(); i ++) {
+					enemies.get(i).checkBoundaries();
+					enemies.get(i).enemyFollow();
+					enemies.get(i).physics();
+					enemies.get(i).checkHit();
+					enemies.get(i).paint(g2);
+				}
 			}
+			
+			g2.setColor(new Color (0, 0, 0));
+	
+			this.updateMouse();
+			player.checkSword();
+			player.physics();
+			player.checkBoundaries();
+			player.checkEnemy();
+			player.paint(g2);
 		}
-		
-		g2.setColor(new Color (0, 0, 0));
-
-		this.updateMouse();
-		player.checkSword();
-		player.physics();
-		player.checkBoundaries();
-		player.checkEnemy();
-		player.paint(g2);
-
 	}
 	
 	public void updateMouse () {
