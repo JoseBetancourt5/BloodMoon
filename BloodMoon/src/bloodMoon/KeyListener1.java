@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 public class KeyListener1 implements KeyListener, MouseListener {
 
 	public static boolean keys [];
+	public static int numKey;
 	public static int key;
 	public static int mouseX;
 	public static int mouseY;
@@ -17,6 +18,7 @@ public class KeyListener1 implements KeyListener, MouseListener {
 	public KeyListener1 () {
 		key = 0;
 		keys = new boolean [4];
+		numKey = 1;
 	}
 
 	@Override
@@ -33,6 +35,25 @@ public class KeyListener1 implements KeyListener, MouseListener {
 		}
 		else if (e.getKeyCode()==KeyEvent.VK_W || e.getKeyCode()==KeyEvent.VK_UP) {
 			keys[0]=true;
+		}
+		
+		if (e.getKeyCode()==KeyEvent.VK_1) {
+			numKey = 1;
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_2) {
+			numKey = 2;
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_3) {
+			numKey = 3;
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_4) {
+			numKey = 4;
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_5) {
+			numKey = 5;
+		}
+		else if (e.getKeyCode()==KeyEvent.VK_6) {
+			numKey = 6;
 		}
 	}
 

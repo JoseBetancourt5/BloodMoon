@@ -23,7 +23,7 @@ public class Background {
 
 	public void paint (Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		g2.drawImage(background, 0, 0, 1400, 700, null);
+		g2.drawImage(background, 0, 0, 1366, 706, null);
 
    }
 }

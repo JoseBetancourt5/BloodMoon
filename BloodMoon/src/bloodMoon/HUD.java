@@ -1,6 +1,7 @@
 package bloodMoon;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -8,21 +9,37 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 
 public class HUD {
 
     BufferedImage itemBar;
-    BufferedImage healthbar;
-    BufferedImage manabar;
-    BufferedImage stonewall;
+    BufferedImage sword;
+    BufferedImage wand;
+    BufferedImage healthPotion;
+    BufferedImage shield;
+    BufferedImage lightning;
+    BufferedImage bomb;
+    Font font;
+    Player player;
+
 
     
-    public HUD () {
+    public HUD (Player p) {
+    	
+    	player  =  p;
+        font = new Font("InfoErrataMsg", Font.BOLD, 20);
+
+    	
         try {
-            healthbar = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Health.png"));
             itemBar = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Item Bar.png"));
-            manabar = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\manabar.png"));
-            stonewall = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Stone.png"));
+			sword = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Sword Angled.png"));
+			wand = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Wand Angled.png"));
+			healthPotion = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Health Potion.png"));
+			shield = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Shield.png"));
+			lightning = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Lightning.png"));
+			bomb = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\bomb.png"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,21 +49,30 @@ public class HUD {
         Graphics2D g2 = (Graphics2D) g;
         
 
+        g2.setFont(font);
+        g2.setColor(Color.green);
+
         
-        g2.setColor(new Color(187,187,187));
-        g2.fillRect(90, 725, 500,55);
-        g2.fillRect(90, 810, 500,55);
-        g2.fillRect(710, 740, 670, 110);
-        g2.drawImage(healthbar, -10, 600, 670, 330, null);
-        g2.drawImage(itemBar, 700, 722, 700, 150, null);
-        g2.drawImage(manabar, 0, 790, 603, 89, null);
-        g2.setColor(new Color(255,0,0));
+
+        g2.drawImage(itemBar, 543, 650, 284, 56, null);
+        g2.drawImage(sword, 558, 666, 30, 30, null);
+        g2.drawImage(wand, 606, 666, 30, 30, null);
         
-        g2.drawImage(stonewall, 0, 700, 375, 200, null);
-        g2.drawImage(stonewall, 375, 700, 375, 200, null);
-        g2.drawImage(stonewall, 750, 700, 375, 200, null);
-        g2.drawImage(stonewall, 1125, 700, 375, 200, null);
-        //g2.fillRect(50, 715, 4*player.health, 30);
+        g2.drawImage(healthPotion, 649, 665, 30, 30, null);
+        g2.drawString(player.healthPots + "", 668, 696);
+        
+        g2.drawImage(shield, 693, 665, 30, 30, null);
+        g2.drawString(player.barriers + "", 713, 696);
+        
+        g2.drawImage(lightning, 742, 668, 26, 26, null);
+        g2.drawString(player.bolts + "", 758, 696);
+        
+        g2.drawImage(bomb, 789, 666, 26, 26, null);
+        g2.drawString(player.bombs + "", 804, 696);
+
+        
+
+       
   }
 }
 
