@@ -15,7 +15,7 @@ public class Background {
 
 	public Background () {
 		try {
-			background = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\background.png"));
+			background = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\background.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

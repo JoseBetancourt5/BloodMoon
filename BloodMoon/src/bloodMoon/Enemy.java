@@ -53,12 +53,12 @@ public class Enemy {
 		spearY = 0;
 		
 		try {
-			shooterRight = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Wyvern_Enemy.png"));
-			shooterLeft = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Wyvern_Enemy_Left.png"));
-			stabberRight = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Ghoul_Enemy.png"));
-			stabberLeft = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Ghoul_Enemy_Left.png"));
-			spear = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Spear.png"));
-			spearRight = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Spear Right.png"));
+			shooterRight = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Wyvern_Enemy.png"));
+			shooterLeft = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Wyvern_Enemy_Left.png"));
+			stabberRight = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Ghoul_Enemy.png"));
+			stabberLeft = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Ghoul_Enemy_Left.png"));
+			spear = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Spear.png"));
+			spearRight = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Spear Right.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

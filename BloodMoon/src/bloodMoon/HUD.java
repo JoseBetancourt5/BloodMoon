@@ -32,13 +32,13 @@ public class HUD {
 
     	
         try {
-            itemBar = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Item Bar.png"));
-			sword = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Sword Angled.png"));
-			wand = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Wand Angled.png"));
-			healthPotion = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Health Potion.png"));
-			shield = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Shield.png"));
-			lightning = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\Lightning.png"));
-			bomb = ImageIO.read(new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\bomb.png"));
+            itemBar = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Item Bar.png"));
+			sword = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Sword Angled.png"));
+			wand = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Wand Angled.png"));
+			healthPotion = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Health Potion.png"));
+			shield = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Shield.png"));
+			lightning = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\Lightning.png"));
+			bomb = ImageIO.read(new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\bomb.png"));
 
         } catch (IOException e) {
             e.printStackTrace();

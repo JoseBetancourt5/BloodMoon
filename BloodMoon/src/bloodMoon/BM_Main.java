@@ -50,7 +50,7 @@ public class BM_Main {
 		MGP.start(loop);*/
 		
 		try {
-			File file = new File("C:\\Users\\ruler\\git\\BloodMoon2\\BloodMoon\\src\\Images\\GOT Music.wav");
+			File file = new File("C:\\Users\\ruler\\git\\Blood_Moon\\BloodMoon\\src\\Images\\GOT Music.wav");
 			Clip clip = AudioSystem.getClip();
 		    clip.open(AudioSystem.getAudioInputStream(file));
 		    clip.start();
